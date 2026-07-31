@@ -40,20 +40,27 @@ def _load_index():
 
 
 @lru_cache(maxsize=1)
-def _load_embedder():
-    from sentence_transformers import SentenceTransformer
+def _get_gemini_client():
+    from google import genai
 
-    return SentenceTransformer(config.EMBEDDING_MODEL_NAME)
+    return genai.Client(api_key=config.GEMINI_API_KEY)
 
 
 def retrieve(query: str, top_k: int = None):
     """Return a list of {rank, score, text} for the chunks most relevant to query."""
     top_k = top_k or config.TOP_K
     index, chunks, _meta = _load_index()
-    embedder = _load_embedder()
+    client = _get_gemini_client()
 
-    query_vec = embedder.encode([query], normalize_embeddings=True)
-    query_vec = np.asarray(query_vec, dtype="float32")
+    response = client.models.embed_content(
+        model=config.EMBEDDING_MODEL_NAME,
+        contents=[query],
+    )
+    query_vec = np.array([response.embeddings[0].values], dtype="float32")
+    # Normalise for cosine similarity
+    norm = np.linalg.norm(query_vec)
+    if norm > 0:
+        query_vec = query_vec / norm
 
     scores, indices = index.search(query_vec, min(top_k, len(chunks)))
     results = []
