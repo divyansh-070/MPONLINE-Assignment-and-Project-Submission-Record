@@ -126,7 +126,7 @@ def embed_chunks(chunks: list[str]) -> np.ndarray:
     if not config.GEMINI_API_KEY:
         raise RuntimeError("GEMINI_API_KEY must be set to build the index.")
 
-    client = genai.Client(api_key=config.GEMINI_API_KEY, http_options={"api_version": "v1"})
+    client = genai.Client(api_key=config.GEMINI_API_KEY)
     vectors = []
     batch_size = 100  # Gemini supports up to 100 texts per call
 
