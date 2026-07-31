@@ -128,7 +128,7 @@ def embed_chunks(chunks: list[str]) -> np.ndarray:
 
     client = genai.Client(api_key=config.GEMINI_API_KEY)
     vectors = []
-    batch_size = 100  # Gemini supports up to 100 texts per call
+    batch_size = 40  # Reduced to avoid hitting 30K TPM quota limit
 
     for i in range(0, len(chunks), batch_size):
         batch = chunks[i : i + batch_size]
@@ -141,7 +141,7 @@ def embed_chunks(chunks: list[str]) -> np.ndarray:
         print(f"[ingest] Embedded {min(i + batch_size, len(chunks))}/{len(chunks)} chunks...")
         if i + batch_size < len(chunks):
             import time
-            time.sleep(15)  # Strict rate limit evasion
+            time.sleep(30)  # Wait half a minute to stay well under 30K TPM
 
     arr = np.asarray(vectors, dtype="float32")
     # Normalise so inner product == cosine similarity in FAISS IndexFlatIP
