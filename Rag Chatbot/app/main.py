@@ -52,7 +52,7 @@ def health():
     ok = config.FAISS_INDEX_PATH.exists() and config.CHUNKS_PATH.exists()
     meta = {}
     if config.META_PATH.exists():
-        meta = json.loads(config.META_PATH.read_text())
+        meta = json.loads(config.META_PATH.read_text(encoding='utf-8'))
     return {
         "status": "ok" if ok else "index_missing",
         "index_ready": ok,
