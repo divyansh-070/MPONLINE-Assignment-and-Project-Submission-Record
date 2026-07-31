@@ -41,7 +41,7 @@ Buying or selling a used car often involves guesswork around fair pricing. This 
 |**Source**|[Vehicle Dataset from CarDekho – Kaggle](https://www.kaggle.com/datasets/nehalbirla/vehicle-dataset-from-cardekho)|
 |**File Used**|`car data.csv`|
 |**Records**|\~301|
-|**Target Variable**|`Selling\_Price` (in Lakhs ₹)|
+|**Target Variable**|`Selling_Price` (in Lakhs ₹)|
 
 ### Features
 
@@ -55,7 +55,7 @@ Buying or selling a used car often involves guesswork around fair pricing. This 
 |`Owner`|Numeric|Number of previous owners|
 |`Car\_Age`|Engineered|Age of the car (2025 − Year)|
 
-> \*\*Dropped columns:\*\* `Car\_Name` (too many unique values) and `Year` (replaced by `Car\_Age`).
+> **Dropped columns:** `Car_Name` (too many unique values) and `Year` (replaced by `Car_Age`).
 
 \---
 
@@ -73,21 +73,21 @@ Buying or selling a used car often involves guesswork around fair pricing. This 
    ├─ Check for null values (none found)
    └─ Review column types and distributions
 
-4. Data Cleaning \& Feature Engineering
-   ├─ Create 'Car\_Age' feature from 'Year'
-   ├─ Drop 'Car\_Name' and 'Year'
+4. Data Cleaning & Feature Engineering
+   ├─ Create 'Car_Age' feature from 'Year'
+   ├─ Drop 'Car_Name' and 'Year'
    └─ Manually encode categorical variables (Fuel, Seller, Transmission)
 
 5. Model Training
    ├─ 80/20 train-test split
-   └─ Train RandomForestRegressor (n\_estimators=100)
+   └─ Train RandomForestRegressor (n_estimators=100)
 
 6. Model Evaluation
    ├─ R² Score
    └─ RMSE (Root Mean Squared Error)
 
 7. Model Serialization
-   └─ Save trained model as 'car\_price\_model.pkl' using Pickle
+   └─ Save trained model as 'car_price_model.pkl' using Pickle
 
 8. Web App Deployment
    ├─ Build Flask backend (app.py)
@@ -102,8 +102,8 @@ Buying or selling a used car often involves guesswork around fair pricing. This 
 |Parameter|Value|
 |-|-|
 |**Algorithm**|Random Forest Regressor|
-|**n\_estimators**|100|
-|**random\_state**|42|
+|**n_estimators**|100|
+|**random_state**|42|
 |**Train/Test Split**|80/20|
 |**Serialization**|Pickle (`.pkl`)|
 
@@ -194,7 +194,7 @@ cd "car price prediction"
 pip install pandas numpy scikit-learn flask seaborn matplotlib opendatasets
 
 # 3. Option A: Run the notebook (trains model + saves pickle + creates app)
-jupyter notebook "CAR\_PRICE\_PREDICTOR.ipynb"
+jupyter notebook "CAR_PRICE_PREDICTOR.ipynb"
 
 # 3. Option B: Run the Flask app directly (if model pickle already exists)
 python app.py
@@ -202,7 +202,7 @@ python app.py
 
 Then open **http://127.0.0.1:5000** in your browser to use the predictor.
 
-> \*\*Note:\*\* The notebook downloads the dataset using `opendatasets`. You will be prompted for your Kaggle username and API key on first run.
+> **Note:** The notebook downloads the dataset using `opendatasets`. You will be prompted for your Kaggle username and API key on first run.
 
 \---
 
@@ -210,9 +210,9 @@ Then open **http://127.0.0.1:5000** in your browser to use the predictor.
 
 ```
 car price prediction/
-├── CAR\_PRICE\_PREDICTOR.ipynb   			# Main notebook (EDA + training + app creation)
+├── CAR_PRICE_PREDICTOR.ipynb   			                 # Main notebook (EDA + training + app creation)
 ├── app.py                                              # Flask web application
-├── car\_price\_model.pkl                                 # Serialized Random Forest model
+├── car_price_model.pkl                                 # Serialized Random Forest model
 ├── templates/
 │   └── index.html                                      # Web form UI
 ├── vehicle-dataset-from-cardekho/                      # Dataset directory
@@ -222,6 +222,3 @@ car price prediction/
 │   └── car details v4.csv
 └── README.md                                           # Project documentation
 ```
-
-
-
