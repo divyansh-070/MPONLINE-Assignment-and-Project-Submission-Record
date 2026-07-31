@@ -23,9 +23,9 @@ A collection of **9 projects** spanning Machine Learning, Deep Learning, Compute
 | 1 | [Adult Census Income Classification](./Adult%20Census%20Income%20Classification/) | ML — Classification | Logistic Regression, Decision Tree, Random Forest, KNN, SVM | — |
 | 2 | [Cancer Classification (Brain Tumor MRI)](./Cancer%20Classification/) | DL — Medical Imaging | CNN, TensorFlow, ImageDataGenerator, 4-class MRI | — |
 | 3 | [CIFAR-10 Image Classification](./CIFAR%2010/) | DL — Computer Vision | CNN, Data Augmentation, BatchNorm | — |
-| 4 | [LFW Face Recognition](./LFW%20face%20recognition/) | DL — Face Recognition | CNN, LFW Dataset, 7-class face ID | — |
+| 4 | [LFW Face Recognition](./LFW/) | DL — Face Recognition | CNN, LFW Dataset, 7-class face ID | — |
 | 5 | [Movie Recommendation System](./Movie-Recommendation-System/) | ML — NLP / Recommender | TF-IDF, Cosine Similarity, Flask | — |
-| 6,7 | [RAG Chatbot (Amazon 10-Q) Render Deployement](./Rag_Chatbot/) | NLP — RAG | FastAPI, FAISS, Gemini AI, Sentence-Transformers | [🌍 Live on Render](https://car-price-prediction-app-00au.onrender.com) | |
+| 6,7 | [RAG Chatbot (Amazon 10-Q) Render Deployement](./Rag_Chatbot/) | NLP — RAG | FastAPI, FAISS, Gemini AI, Sentence-Transformers | [🌍 Live on Render](https://mponline-assignment-and-project.onrender.com/) | |
 | 8 | [CartPole (PPO)](./Cart-Pole/) | RL — Control | Stable-Baselines3, PPO, Gymnasium | — |
 | 9 | [Lunar Lander (DQN)](./Lunar%20Lander/) | RL — Control | Stable-Baselines3, DQN, Box2D | — |
 
@@ -52,7 +52,7 @@ Classifies brain MRI images into **4 categories** (Glioma, Meningioma, No Tumor,
 ---
 
 
-### 3. 🖼️ [CIFAR-10 Image Classification](./CIFAR%2010/)
+### 3. 🖼️ [CIFAR-10](./CIFAR%2010/)
 
 Classifies **32×32 RGB images** into **10 object categories** (Airplane, Automobile, Bird, Cat, Deer, Dog, Frog, Horse, Ship, Truck) using a custom CNN with data augmentation. Targets **85%+ accuracy**.
 
@@ -61,7 +61,7 @@ Classifies **32×32 RGB images** into **10 object categories** (Airplane, Automo
 
 ---
 
-### 4. 👤 [LFW Face Recognition](./LFW%20face%20recognition/)
+### 4. 👤 [LFW](./LFW%20face%20recognition/)
 
 Recognizes **faces of 7 public figures** from the Labeled Faces in the Wild dataset using a custom CNN. Handles limited training data through augmentation and stratified splitting.
 
@@ -82,7 +82,7 @@ A content-based movie recommendation engine using **TF-IDF Vectorization** and *
 ### 6, 7. 🤖 [RAG Chatbot — Amazon Quarterly Report(With Render Deployement)](./Rag_Chatbot/)
 
 A Retrieval-Augmented Generation chatbot that answers questions about Amazon's 10-Q quarterly report, grounded in the actual filing text with **citations**.
-🌍 **Live Demo:** [https://car-price-prediction-app-00au.onrender.com](https://car-price-prediction-app-00au.onrender.com)
+🌍 **Live Demo:** [https://amazon-10q-rag-chatbot.com/](https://mponline-assignment-and-project.onrender.com/)
 
 **Stack:** FastAPI + Sentence-Transformers (MiniLM) + FAISS (vector search) + Gemini AI  
 **Flow:** Embed query → FAISS similarity search → Top-k excerpts → Gemini generates grounded answer
