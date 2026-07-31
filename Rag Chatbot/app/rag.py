@@ -34,8 +34,8 @@ def _load_index():
             "Vector index not found. Build it first with: python -m app.ingest"
         )
     index = faiss.read_index(str(config.FAISS_INDEX_PATH))
-    chunks = json.loads(config.CHUNKS_PATH.read_text())
-    meta = json.loads(config.META_PATH.read_text()) if config.META_PATH.exists() else {}
+    chunks = json.loads(config.CHUNKS_PATH.read_text(encoding='utf-8'))
+    meta = json.loads(config.META_PATH.read_text(encoding='utf-8')) if config.META_PATH.exists() else {}
     return index, chunks, meta
 
 
