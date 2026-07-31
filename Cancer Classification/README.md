@@ -38,8 +38,8 @@ Brain tumors are one of the most critical conditions requiring early and accurat
 |Property|Detail|
 |-|-|
 |**Source**|[Brain Tumor MRI Dataset – Kaggle](https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset)|
-|**Training Images**|\~5,600|
-|**Testing Images**|\~1,600|
+|**Training Images**|~5,600|
+|**Testing Images**|~1,600|
 |**Image Type**|Grayscale MRI scans|
 |**Input Size**|Resized to 64×64 pixels|
 |**Classes**|4|
@@ -75,10 +75,10 @@ Brain tumors are one of the most critical conditions requiring early and accurat
    │   ├─ Width/Height shift (5%)
    │   ├─ Horizontal flip
    │   └─ Zoom (5%)
-   └─ Rescale pixel values to \[0, 1]
+   └─ Rescale pixel values to [0, 1]
 
 5. Model Building
-   └─ Design a 3-block CNN with BatchNorm, Dropout \& GlobalAveragePooling
+   └─ Design a 3-block CNN with BatchNorm, Dropout & GlobalAveragePooling
 
 6. Model Training
    ├─ Train for up to 40 epochs
@@ -114,7 +114,7 @@ A custom **Sequential CNN** with 3 convolutional blocks:
 |Loss Function|Categorical Cross-Entropy|
 |Max Epochs|40|
 |LR Scheduler|ReduceLROnPlateau (min LR = 1e-6)|
-|Early Stopping|Patience = 12, monitors val\_accuracy|
+|Early Stopping|Patience = 12, monitors val_accuracy|
 
 \---
 
@@ -176,10 +176,10 @@ cd "Cancer Classification"
 pip install tensorflow matplotlib numpy scipy scikit-learn seaborn opendatasets
 
 # 3. Launch the notebook
-jupyter notebook "Cancer\_Classification(Brain\_Tumor).ipynb"
+jupyter notebook "Cancer_Classification(Brain_Tumor).ipynb"
 ```
 
-> \*\*Note:\*\* The notebook downloads the dataset automatically using `opendatasets`. You will be prompted for your Kaggle username and API key on first run.
+> **Note:** The notebook downloads the dataset automatically using `opendatasets`. You will be prompted for your Kaggle username and API key on first run.
 
 \---
 
@@ -187,15 +187,15 @@ jupyter notebook "Cancer\_Classification(Brain\_Tumor).ipynb"
 
 ```
 Cancer Classification/
-├── Cancer\_Classification(Brain\_Tumor).ipynb  		  # Main notebook
+├── Cancer_Classification(Brain_Tumor).ipynb  		       # Main notebook
 ├── README.md                                             # Project documentation
 └── brain-tumor-mri-dataset/                              # MRI image dataset
-    ├── Training/                                         # \~5,600 training images
+    ├── Training/                                         # ~5,600 training images
     │   ├── glioma/
     │   ├── meningioma/
     │   ├── notumor/
     │   └── pituitary/
-    └── Testing/                                          # \~1,600 test images
+    └── Testing/                                          # ~1,600 test images
         ├── glioma/
         ├── meningioma/
         ├── notumor/
