@@ -120,20 +120,32 @@ def chunk_text(text: str, chunk_size: int = None, overlap: int = None) -> list[s
 
 
 def embed_chunks(chunks: list[str]) -> np.ndarray:
-    # Imported lazily so the rest of the app doesn't pay the torch import
-    # cost unless we're actually (re)building the index.
-    from sentence_transformers import SentenceTransformer
+    """Embed chunks using the Gemini Embeddings API (no PyTorch required)."""
+    from google import genai
 
-    print(f"[ingest] Loading embedding model: {config.EMBEDDING_MODEL_NAME}")
-    model = SentenceTransformer(config.EMBEDDING_MODEL_NAME)
-    print("[ingest] Embedding chunks...")
-    vectors = model.encode(
-        chunks,
-        batch_size=32,
-        show_progress_bar=True,
-        normalize_embeddings=True,  # so inner product == cosine similarity
-    )
-    return np.asarray(vectors, dtype="float32")
+    if not config.GEMINI_API_KEY:
+        raise RuntimeError("GEMINI_API_KEY must be set to build the index.")
+
+    client = genai.Client(api_key=config.GEMINI_API_KEY)
+    vectors = []
+    batch_size = 100  # Gemini supports up to 100 texts per call
+
+    for i in range(0, len(chunks), batch_size):
+        batch = chunks[i : i + batch_size]
+        response = client.models.embed_content(
+            model=config.EMBEDDING_MODEL_NAME,
+            contents=batch,
+        )
+        for emb in response.embeddings:
+            vectors.append(emb.values)
+        print(f"[ingest] Embedded {min(i + batch_size, len(chunks))}/{len(chunks)} chunks...")
+
+    arr = np.asarray(vectors, dtype="float32")
+    # Normalise so inner product == cosine similarity in FAISS IndexFlatIP
+    norms = np.linalg.norm(arr, axis=1, keepdims=True)
+    arr = arr / np.maximum(norms, 1e-9)
+    return arr
+
 
 
 def build_index(force: bool = False) -> None:
