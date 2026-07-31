@@ -139,6 +139,9 @@ def embed_chunks(chunks: list[str]) -> np.ndarray:
         for emb in response.embeddings:
             vectors.append(emb.values)
         print(f"[ingest] Embedded {min(i + batch_size, len(chunks))}/{len(chunks)} chunks...")
+        if i + batch_size < len(chunks):
+            import time
+            time.sleep(3)  # Prevent hitting Gemini API rate limits
 
     arr = np.asarray(vectors, dtype="float32")
     # Normalise so inner product == cosine similarity in FAISS IndexFlatIP
