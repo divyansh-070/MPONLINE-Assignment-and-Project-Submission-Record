@@ -25,7 +25,7 @@ A collection of **9 projects** spanning Machine Learning, Deep Learning, Compute
 | 3 | [CIFAR-10 Image Classification](./CIFAR%2010/) | DL — Computer Vision | CNN, Data Augmentation, BatchNorm | — |
 | 4 | [LFW Face Recognition](./LFW/) | DL — Face Recognition | CNN, LFW Dataset, 7-class face ID | — |
 | 5 | [Movie Recommendation System](./Movie-Recommendation-System/) | ML — NLP / Recommender | TF-IDF, Cosine Similarity, Flask | — |
-| 6,7 | [RAG Chatbot (Amazon 10-Q) Render Deployement](./Rag_Chatbot/) | NLP — RAG | FastAPI, FAISS, Gemini AI, Sentence-Transformers | [🌍 Live on Render](https://mponline-assignment-and-project.onrender.com/) | |
+| 6, 7 | [RAG Chatbot (Amazon 10-Q) Render Deployement](./Rag_Chatbot/) | NLP — RAG | FastAPI, FAISS, Gemini AI, Sentence-Transformers | [🌍 Live on Render](https://mponline-assignment-and-project.onrender.com/) | |
 | 8 | [CartPole (PPO)](./Cart-Pole/) | RL — Control | Stable-Baselines3, PPO, Gymnasium | — |
 | 9 | [Lunar Lander (DQN)](./Lunar%20Lander/) | RL — Control | Stable-Baselines3, DQN, Box2D | — |
 
