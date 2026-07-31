@@ -43,7 +43,7 @@ def _load_index():
 def _get_gemini_client():
     from google import genai
 
-    return genai.Client(api_key=config.GEMINI_API_KEY, http_options={"api_version": "v1"})
+    return genai.Client(api_key=config.GEMINI_API_KEY)
 
 
 def retrieve(query: str, top_k: int = None):
