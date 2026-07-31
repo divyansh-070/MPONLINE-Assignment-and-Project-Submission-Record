@@ -156,7 +156,7 @@ def build_index(force: bool = False) -> None:
     index.add(vectors)
     faiss.write_index(index, str(config.FAISS_INDEX_PATH))
 
-    config.CHUNKS_PATH.write_text(json.dumps(chunks, ensure_ascii=False, indent=0))
+    config.CHUNKS_PATH.write_text(json.dumps(chunks, ensure_ascii=False, indent=0), encoding='utf-8')
     config.META_PATH.write_text(
         json.dumps(
             {
@@ -167,7 +167,8 @@ def build_index(force: bool = False) -> None:
                 "built_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
             },
             indent=2,
-        )
+        ),
+        encoding='utf-8',
     )
     print(f"[ingest] Index built: {len(chunks)} chunks -> {config.FAISS_INDEX_PATH}")
 
