@@ -74,9 +74,9 @@ def chat(req: ChatRequest):
         return result
     except RuntimeError as e:
         raise HTTPException(status_code=503, detail=str(e))
-    except Exception:
+    except Exception as e:
         logger.error("Chat request failed:\n%s", traceback.format_exc())
-        raise HTTPException(status_code=500, detail="Something went wrong generating the answer.")
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.post("/api/reindex")
