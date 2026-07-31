@@ -25,9 +25,9 @@ A collection of **9 projects** spanning Machine Learning, Deep Learning, Compute
 | 3 | [CIFAR-10 Image Classification](./CIFAR%2010/) | DL — Computer Vision | CNN, Data Augmentation, BatchNorm | — |
 | 4 | [LFW Face Recognition](./LFW%20face%20recognition/) | DL — Face Recognition | CNN, LFW Dataset, 7-class face ID | — |
 | 5 | [Movie Recommendation System](./Movie-Recommendation-System/) | ML — NLP / Recommender | TF-IDF, Cosine Similarity, Flask | — |
-| 6,7 | [RAG Chatbot (Amazon 10-Q)](./Rag_Chatbot/) | NLP — RAG | FastAPI, FAISS, Gemini AI, Sentence-Transformers | [🌍 Live on Render](https://car-price-prediction-app-00au.onrender.com) | |
-| 8 | [CartPole (PPO)](./cartpole/) | RL — Control | Stable-Baselines3, PPO, Gymnasium | — |
-| 9 | [Lunar Lander (DQN)](./lunar%20lander/) | RL — Control | Stable-Baselines3, DQN, Box2D | — |
+| 6,7 | [RAG Chatbot (Amazon 10-Q) Render Deployement](./Rag_Chatbot/) | NLP — RAG | FastAPI, FAISS, Gemini AI, Sentence-Transformers | [🌍 Live on Render](https://car-price-prediction-app-00au.onrender.com) | |
+| 8 | [CartPole (PPO)](./Cart-Pole/) | RL — Control | Stable-Baselines3, PPO, Gymnasium | — |
+| 9 | [Lunar Lander (DQN)](./Lunar%20Lander/) | RL — Control | Stable-Baselines3, DQN, Box2D | — |
 
 ---
 
@@ -89,7 +89,7 @@ A Retrieval-Augmented Generation chatbot that answers questions about Amazon's 1
 
 ---
 
-### 8. 🎮 [CartPole — PPO Reinforcement Learning](./cartpole/)
+### 8. 🎮 [Cart-Pole — PPO Reinforcement Learning](./cartpole/)
 
 Trains an agent to balance a pole on a cart using **Proximal Policy Optimization (PPO)** with Stable-Baselines3 in the Gymnasium CartPole-v1 environment.
 
@@ -132,7 +132,7 @@ Trains an autonomous spacecraft agent to safely land on a designated pad using *
 ├── LFW face recognition/                 # CNN face recognition (7-class)
 ├── Movie-Recommendation-System/          # TF-IDF + Flask recommender
 ├── Rag Chatbot/                          # RAG chatbot with FAISS + Gemini + Render Deployement
-├── cartpole/                             # PPO reinforcement learning
-├── lunar lander/                         # DQN reinforcement learning
+├── Cart-Pole/                            # PPO reinforcement learning
+├── Lunar Lander/                         # DQN reinforcement learning
 └── README.md                             # This file
 ```
