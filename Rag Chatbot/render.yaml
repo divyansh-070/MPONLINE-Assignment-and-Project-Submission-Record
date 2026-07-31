@@ -5,7 +5,7 @@ services:
     plan: standard          # sentence-transformers/torch need more than the 512MB free/starter tier
     region: oregon
     branch: main
-    buildCommand: "pip install -r requirements.txt && python -m app.ingest"
+    buildCommand: "pip install -r requirements.txt && python -m app.ingest --force"
     startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
     healthCheckPath: /api/health
     envVars:
